@@ -99,25 +99,25 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    private void endGame(String s) {
+    private void endGame(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("More Info");
-        builder.setMessage(s);
+        builder.setTitle("Game Over");
+        builder.setMessage(message);
+
         builder.setPositiveButton("EXIT", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-// Exit handling
-
+                finish(); // Close the activity
             }
         });
+
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-// Cancel handling
-
+                dialogInterface.dismiss(); // Close the dialog
             }
         });
+
         AlertDialog dialog = builder.show();
     }
-
 }
